@@ -1,0 +1,20 @@
+Package: epiehpi
+Title: A Basic Compartmental Epidemic Modelling API
+Version: 1.0.0
+Authors@R:
+  c(person("Bryce", "Carson",
+           c("bryce.a.carson@gmail.com", "bcars268@mtroyal.ca"),
+           role = c("aut", "cre"),
+           comment = c(ORCID = "0000-0002-1362-2998",
+                       GitHub = "bryce-carson")),
+    person("Ashok", "Krishnamurthy", "akrishnamurthy@mtroyal.ca",
+           role = c("cph", "ctb"),
+           comment = c(ORCID = "")),
+    person("Alberta Innovates", role = "fnd",
+           comment =
+             c(funding = "2024 Alberta Innovates Mount Royal University")))
+Description: A unified interface to a set of eight epidemic models: SIR, SIRS, SIRD, SIRDS, SEIR, SEIRS, SEIRD, SEIRDS. Each model is configured with the same function, and the model that runs is determined by the function arguments alone.
+License: GPL (>= 3)
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.3.1
