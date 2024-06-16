@@ -1,6 +1,7 @@
 Package: epiehpi
 Title: A Basic Compartmental Epidemic Modelling API
 Version: 0.5.0
+Language: en-CA
 Authors@R:
   c(person(given = "Bryce", family = "Carson",
            email = c("bryce.a.carson@gmail.com", "bcars268@mtroyal.ca"),

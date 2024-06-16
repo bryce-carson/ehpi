@@ -1,9 +1,9 @@
 #' An interface to eight compartmental epidemic models.
 #'
 #' [ehpi()] is an application programming interface (for the
-#' Shiny applicaiton that motivated its creation) or a convenient function for
+#' Shiny application that motivated its creation) or a convenient function for
 #' interactive use in epidemic modelling. The arguments provided to the function
-#' determine comparments used in the model that is run.
+#' determine compartments used in the model that is run.
 #'
 #' The convention for pronouncing [ehpi()] is "epi" as in "epidemic" or
 #' "ay pee eye", like API; "epi" is preferred because it reflects the

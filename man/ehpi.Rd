@@ -76,9 +76,9 @@ arguments).
 }
 \description{
 \code{\link[=ehpi]{ehpi()}} is an application programming interface (for the
-Shiny applicaiton that motivated its creation) or a convenient function for
+Shiny application that motivated its creation) or a convenient function for
 interactive use in epidemic modelling. The arguments provided to the function
-determine comparments used in the model that is run.
+determine compartments used in the model that is run.
 }
 \details{
 The convention for pronouncing \code{\link[=ehpi]{ehpi()}} is "epi" as in "epidemic" or
