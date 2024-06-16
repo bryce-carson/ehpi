@@ -1,6 +1,6 @@
-Package: epiehpi
+Package: ehpi
 Title: A Basic Compartmental Epidemic Modelling API
-Version: 0.5.0
+Version: 0.6.0
 Language: en-CA
 Authors@R:
   c(person(given = "Bryce", family = "Carson",
@@ -15,18 +15,20 @@ Authors@R:
     person(given = "Alberta Innovates", role = "fnd",
            comment =
              c(funding = "2024 Alberta Innovates Mount Royal University")))
-Description: A unified interface to a set of eight epidemic models: SIR, SIRS, SIRD, SIRDS, SEIR, SEIRS, SEIRD, SEIRDS. Each model is configured with the same function, and the model that runs is determined by the function arguments alone.
- Epiehpi is a small, but effective and thoughtful single-function package which
- implements eight different compartmental epidemic models. The choice of model is
- determined by the provided arguments, with only the minimal set of arguments
- needed to distinguish one model from another being necessary; the default
- arguments of model parameters and model options are either irrelevant to other
- models, or are used in clever ways to disable or enable a compartment.
+Description: A unified interface to a set of eight epidemic models: SIR, SIRS,
+  SIRD, SIRDS, SEIR, SEIRS, SEIRD, SEIRDS. Each model is configured with the
+  same function, and the model that runs is determined by the function arguments
+  alone.
+  *ehpi* is a small, but effective and thoughtful single-function package which
+  implements eight different compartmental epidemic models. The choice of model
+  is determined by the provided arguments, with only the minimal set of
+  arguments needed to distinguish one model from another being necessary; the
+  default arguments of model parameters and model options are either irrelevant
+  to other models, or are used in clever ways to disable or enable a
+  compartment.
 License: GPL (>= 3)
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.1
-URL: https://github.com/bryce-carson/epiehpi, https://bryce-carson.github.io/epiehpi/
-BugReports: https://github.com/bryce-carson/epiehpi/issues
 Imports:
     deSolve

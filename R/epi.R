@@ -1,14 +1,14 @@
 #' An interface to eight compartmental epidemic models.
 #'
-#' [ehpi()] is an application programming interface (for the
+#' [ehpi::epi()] is an application programming interface (for the
 #' Shiny application that motivated its creation) or a convenient function for
 #' interactive use in epidemic modelling. The arguments provided to the function
 #' determine compartments used in the model that is run.
 #'
-#' The convention for pronouncing [ehpi()] is "epi" as in "epidemic" or
+#' The convention for pronouncing [ehpi::epi()] is "epi" as in "epidemic" or
 #' "ay pee eye", like API; "epi" is preferred because it reflects the
 #' conventional pronunciation when package-qualified. The package-qualified,
-#' full name is "epiehpi", and is pronounced like "epi epi". While [ehpi()]
+#' full name is "ehpi epi", and is pronounced like "epi epi". While ehpi
 #' provides "an API" for the Episim Shiny application, it won't enable the
 #' development of applications that provide any feature episim doesn't already
 #' provide by wrapping this package.
@@ -48,7 +48,7 @@
 #'   for time, with `outputRows` rows. Each row contains the values of the
 #'   differential equations for each point in time of the model (per function
 #'   arguments).
-ehpi <-
+epi <-
   function(## Initial state variables
            population, susceptible, exposed = 0, infected, recovered, dead = 0,
 

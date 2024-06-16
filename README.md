@@ -1,5 +1,5 @@
-# `epi::ehpi` <a href="https://bryce-carson.github.io/epiehpi/"><img src="man/figures/logo.png" align="right" height="120" alt="epiehpi website" /></a>
-Epiehpi is a small, but effective and thoughtful single-function package which
+# `ehpi` <a href="https://bryce-carson.github.io/ehpi/"><img src="man/figures/logo.png" align="right" height="120" alt="ehpi website" /></a>
+$\textsc{ehpi}$ is a small, but effective and thoughtful single-function package which
 implements eight different compartmental epidemic models. The choice of model is
 determined by the provided arguments, with only the minimal set of arguments
 needed to distinguish one model from another being necessary; the default
