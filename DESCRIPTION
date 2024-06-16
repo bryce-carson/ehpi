@@ -1,22 +1,31 @@
 Package: epiehpi
 Title: A Basic Compartmental Epidemic Modelling API
-Version: 1.0.0
+Version: 0.5.0
 Authors@R:
-  c(person("Bryce", "Carson",
-           c("bryce.a.carson@gmail.com", "bcars268@mtroyal.ca"),
+  c(person(given = "Bryce", family = "Carson",
+           email = c("bryce.a.carson@gmail.com", "bcars268@mtroyal.ca"),
            role = c("aut", "cre"),
            comment = c(ORCID = "0000-0002-1362-2998",
                        GitHub = "bryce-carson")),
-    person("Ashok", "Krishnamurthy", "akrishnamurthy@mtroyal.ca",
+    person(given = "Ashok", family = "Krishnamurthy",
+           email ="akrishnamurthy@mtroyal.ca",
            role = c("cph", "ctb"),
            comment = c(ORCID = "")),
-    person("Alberta Innovates", role = "fnd",
+    person(given = "Alberta Innovates", role = "fnd",
            comment =
              c(funding = "2024 Alberta Innovates Mount Royal University")))
 Description: A unified interface to a set of eight epidemic models: SIR, SIRS, SIRD, SIRDS, SEIR, SEIRS, SEIRD, SEIRDS. Each model is configured with the same function, and the model that runs is determined by the function arguments alone.
+ Epiehpi is a small, but effective and thoughtful single-function package which
+ implements eight different compartmental epidemic models. The choice of model is
+ determined by the provided arguments, with only the minimal set of arguments
+ needed to distinguish one model from another being necessary; the default
+ arguments of model parameters and model options are either irrelevant to other
+ models, or are used in clever ways to disable or enable a compartment.
 License: GPL (>= 3)
 Encoding: UTF-8
 Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.1
-URL: https://github.com/bryce-carson/epiehpi
+URL: https://github.com/bryce-carson/epiehpi, https://bryce-carson.github.io/epiehpi/
 BugReports: https://github.com/bryce-carson/epiehpi/issues
+Imports:
+    deSolve

@@ -1,4 +1,54 @@
-epiehpi <-
+#' An interface to eight compartmental epidemic models.
+#'
+#' [ehpi()] is an application programming interface (for the
+#' Shiny applicaiton that motivated its creation) or a convenient function for
+#' interactive use in epidemic modelling. The arguments provided to the function
+#' determine comparments used in the model that is run.
+#'
+#' The convention for pronouncing [ehpi()] is "epi" as in "epidemic" or
+#' "ay pee eye", like API; "epi" is preferred because it reflects the
+#' conventional pronunciation when package-qualified. The package-qualified,
+#' full name is "epiehpi", and is pronounced like "epi epi". While [ehpi()]
+#' provides "an API" for the Episim Shiny application, it won't enable the
+#' development of applications that provide any feature episim doesn't already
+#' provide by wrapping this package.
+#'
+#' @param population The initial number of persons in the simulation; if
+#'   `vitalDynamics = TRUE` and `muB` and `muD` are equal, then it is constant.
+#' @param susceptible The initial number of people who are susceptible to the
+#'   disease (they have no natural immunity to it).
+#' @param exposed The initial number of people who have been exposed to the
+#'   infection and may become infectious themselves.
+#' @param infected The initial number of people who are infectious and may
+#'   infect others.
+#' @param recovered The initial number of people whom are no longer infectious
+#'   and not a risk to others.
+#' @param dead The initial number of fatalities (people killed by the disease).
+#'
+#' @param beta The rate of becoming infectious (if `sigma = 0`, the default), or
+#'   the rate of susceptible people being exposed to the infectious.
+#' @param gamma The rate of becoming recovered (no longer infectious, if `sigma
+#'   = 0`, the default), or the rate of becoming infectious after exposure.
+#' @param sigma The rate of becoming recovered (no longer infectious).
+#' @param delta The rate of fatality.
+#' @param xi The rate of loss of learned immunity.
+#' @param muB The rate of birth.
+#' @param muD The rate of death not due to the disease under consideration.
+#'
+#' @param vitalDynamics Whether vital dynamics is enabled (if `FALSE`, the
+#'   default, implies muB and muD of zero).
+#' @param trueMassAction Whether the force of infection is scaled by the
+#'   population or not.
+#'
+#' @param outputRows The number of output rows in the simulation.
+#' @param timeIncrement The number of increments of "time" that pass between
+#'   each output row.
+#'
+#' @returns A dataframe with a column for each enabled compartment and a column
+#'   for time, with `outputRows` rows. Each row contains the values of the
+#'   differential equations for each point in time of the model (per function
+#'   arguments).
+ehpi <-
   function(## Initial state variables
            population, susceptible, exposed = 0, infected, recovered, dead = 0,
 
@@ -10,8 +60,8 @@ epiehpi <-
            trueMassAction = FALSE,
 
            ## Simulation variables
-           timesteps = 25,
-           increment = 1)
+           outputRows = 25,
+           timeIncrement = 1)
 {
   variables <- c(population, susceptible, exposed, infected, recovered, dead)
   names(variables) <- c("N", "S", "E", "I", "R", "D")
@@ -84,16 +134,16 @@ epiehpi <-
       })
     }
 
-  deSolve::lsoda(variables,
-                 ## TODO: better accommodate the semantics of date-time
-                 ## information to ensure the simulation runs accurately for a
-                 ## given amount of time and the desired number of "reporting
-                 ## periods."
-                 seq(1, length = timesteps, by = increment),
-                 ## MAYBE FIXME: the differential equations don't use the time
-                 ## variable: should they?
-                 differentialEquations,
-                 parameters,
-                 trueMassAction = as.numeric(trueMassAction)) |>
-    as.data.frame()
+  as.data.frame(
+    deSolve::lsoda(variables,
+                   ## TODO: better accommodate the semantics of date-time
+                   ## information to ensure the simulation runs accurately for a
+                   ## given amount of time and the desired number of "reporting
+                   ## periods."
+                   seq(1, length = outputRows, by = timeIncrement),
+                   ## MAYBE FIXME: the differential equations don't use the time
+                   ## variable: should they?
+                   differentialEquations,
+                   parameters,
+                   trueMassAction = as.numeric(trueMassAction)))
 }
