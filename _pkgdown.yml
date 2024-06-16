@@ -2,3 +2,18 @@ url: https://bryce-carson.github.io/epiehpi/
 template:
   bootstrap: 5
 
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+    branches: [main, master]
+  release:
+    types: [published]
+  workflow_dispatch:
+
+      - name: Build site
+        run: Rscript -e 'pkgdown::build_site_github_pages(...)'
+
+      - name: Deploy to GitHub pages 🚀
+        if: github.event_name != 'pull_request'
+        uses: JamesIves/github-pages-deploy-action@4.1.4
