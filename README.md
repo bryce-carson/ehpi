@@ -24,3 +24,8 @@ epidemic modelling.
 ## Funding
 This work was funded by an Alberta Innovates stipend awarded and dispensed
 through Mount Royal University, in Calgary, Alberta.
+
+## Development status
+<!-- badges: start -->
+[![R-CMD-check](https://github.com/bryce-carson/ehpi/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/bryce-carson/ehpi/actions/workflows/R-CMD-check.yaml)
+<!-- badges: end -->
