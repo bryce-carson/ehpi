@@ -32,5 +32,5 @@ Roxygen: list(markdown = TRUE)
 RoxygenNote: 7.3.1
 Imports:
     deSolve
-URL: https://github.com/bryce-carson/ehpi
+URL: https://github.com/bryce-carson/ehpi, https://bryce-carson.github.io/ehpi/
 BugReports: https://github.com/bryce-carson/ehpi/issues
