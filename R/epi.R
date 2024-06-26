@@ -48,6 +48,22 @@
 #'   for time, with `outputRows` rows. Each row contains the values of the
 #'   differential equations for each point in time of the model (per function
 #'   arguments).
+#'
+#' @export
+#'
+#' @examples
+#' epi(population = 500,
+#'     susceptible = 489,
+#'     exposed = 10,
+#'     infected = 1,
+#'     recovered = 0,
+#'     dead = 29,
+#'     beta = 0.005,
+#'     gamma = 0.0009,
+#'     sigma = 0.000001,
+#'     delta = 0.01,
+#'     outputRows = 230)
+#'
 epi <-
   function(## Initial state variables
            population, susceptible, exposed = 0, infected, recovered, dead = 0,

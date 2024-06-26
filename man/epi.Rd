@@ -89,3 +89,17 @@ provides "an API" for the Episim Shiny application, it won't enable the
 development of applications that provide any feature episim doesn't already
 provide by wrapping this package.
 }
+\examples{
+epi(population = 500,
+    susceptible = 489,
+    exposed = 10,
+    infected = 1,
+    recovered = 0,
+    dead = 29,
+    beta = 0.005,
+    gamma = 0.0009,
+    sigma = 0.000001,
+    delta = 0.01,
+    outputRows = 230)
+
+}
