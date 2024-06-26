@@ -5,13 +5,22 @@
 #' interactive use in epidemic modelling. The arguments provided to the function
 #' determine compartments used in the model that is run.
 #'
-#' The convention for pronouncing [ehpi::epi()] is "epi" as in "epidemic" or
-#' "ay pee eye", like API; "epi" is preferred because it reflects the
-#' conventional pronunciation when package-qualified. The package-qualified,
-#' full name is "ehpi epi", and is pronounced like "epi epi". While ehpi
-#' provides "an API" for the Episim Shiny application, it won't enable the
-#' development of applications that provide any feature episim doesn't already
-#' provide by wrapping this package.
+#' The convention for pronouncing [ehpi::epi()] is "epi epi" as if you were
+#' saying "epidemic" twice. If you do want to refer to the package alone, and
+#' not the singular function it packages, you can say "eh pee eye", like "API".
+#'
+#' "eh pee eye" is a tongue-in-cheek Canadianism. You might understand it as,
+#' "Eh, P.I.?", or just a Canadian slant on API. The latter was thought of
+#' first.
+#'
+#' While ehpi provides "an API" for the
+#' [Episim](https://github.com/ashokkrish/episim) Shiny application, it won't
+#' enable the development of applications that provide any feature episim
+#' doesn't already provide by wrapping this package. The function is packages
+#' was extracted from that project to allow associating well-formatted
+#' documentation, vignettes, and examples with the function because that
+#' function is expected to be used outside of Episim, interactively, during
+#' workshops run by Dr. Krishnamurthy.
 #'
 #' @param population The initial number of persons in the simulation; if
 #'   `vitalDynamics = TRUE` and `muB` and `muD` are equal, then it is constant.
