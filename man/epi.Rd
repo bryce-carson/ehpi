@@ -20,7 +20,7 @@ epi(
   muD = 0,
   vitalDynamics = FALSE,
   trueMassAction = FALSE,
-  outputRows = 25,
+  timesteps = 25,
   timeIncrement = 1
 )
 }
@@ -63,14 +63,14 @@ default, implies muB and muD of zero).}
 \item{trueMassAction}{Whether the force of infection is scaled by the
 population or not.}
 
-\item{outputRows}{The number of output rows in the simulation.}
+\item{timesteps}{The number of output rows in the simulation.}
 
 \item{timeIncrement}{The number of increments of "time" that pass between
 each output row.}
 }
 \value{
 A dataframe with a column for each enabled compartment and a column
-for time, with \code{outputRows} rows. Each row contains the values of the
+for time, with \code{timesteps} rows. Each row contains the values of the
 differential equations for each point in time of the model (per function
 arguments).
 }
@@ -109,6 +109,6 @@ epi(population = 500,
     gamma = 0.0009,
     sigma = 0.000001,
     delta = 0.01,
-    outputRows = 230)
+    timesteps = 230)
 
 }

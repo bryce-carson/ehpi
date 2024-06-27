@@ -49,12 +49,12 @@
 #' @param trueMassAction Whether the force of infection is scaled by the
 #'   population or not.
 #'
-#' @param outputRows The number of output rows in the simulation.
+#' @param timesteps The number of output rows in the simulation.
 #' @param timeIncrement The number of increments of "time" that pass between
 #'   each output row.
 #'
 #' @returns A dataframe with a column for each enabled compartment and a column
-#'   for time, with `outputRows` rows. Each row contains the values of the
+#'   for time, with `timesteps` rows. Each row contains the values of the
 #'   differential equations for each point in time of the model (per function
 #'   arguments).
 #'
@@ -71,7 +71,7 @@
 #'     gamma = 0.0009,
 #'     sigma = 0.000001,
 #'     delta = 0.01,
-#'     outputRows = 230)
+#'     timesteps = 230)
 #'
 epi <-
   function(## Initial state variables
@@ -85,7 +85,7 @@ epi <-
            trueMassAction = FALSE,
 
            ## Simulation variables
-           outputRows = 25,
+           timesteps = 25,
            timeIncrement = 1)
 {
   variables <- c(population, susceptible, exposed, infected, recovered, dead)
@@ -165,7 +165,7 @@ epi <-
                    ## information to ensure the simulation runs accurately for a
                    ## given amount of time and the desired number of "reporting
                    ## periods."
-                   seq(1, length = outputRows, by = timeIncrement),
+                   seq(1, length = timesteps, by = timeIncrement),
                    ## MAYBE FIXME: the differential equations don't use the time
                    ## variable: should they?
                    differentialEquations,
