@@ -16,7 +16,7 @@ determine compartments used in the model that is run."><meta property="og:image"
     
     <a class="navbar-brand me-2" href="../index.html">ehpi</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.6.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.7.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -73,7 +73,7 @@ determine compartments used in the model that is run.</p>
 <span>  muD <span class="op">=</span> <span class="fl">0</span>,</span>
 <span>  vitalDynamics <span class="op">=</span> <span class="cn">FALSE</span>,</span>
 <span>  trueMassAction <span class="op">=</span> <span class="cn">FALSE</span>,</span>
-<span>  outputRows <span class="op">=</span> <span class="fl">25</span>,</span>
+<span>  timesteps <span class="op">=</span> <span class="fl">25</span>,</span>
 <span>  timeIncrement <span class="op">=</span> <span class="fl">1</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
@@ -148,7 +148,7 @@ default, implies muB and muD of zero).</p></dd>
 population or not.</p></dd>
 
 
-<dt>outputRows</dt>
+<dt>timesteps</dt>
 <dd><p>The number of output rows in the simulation.</p></dd>
 
 
@@ -162,7 +162,7 @@ each output row.</p></dd>
     
 
 <p>A dataframe with a column for each enabled compartment and a column
-for time, with <code>outputRows</code> rows. Each row contains the values of the
+for time, with <code>timesteps</code> rows. Each row contains the values of the
 differential equations for each point in time of the model (per function
 arguments).</p>
     </div>
@@ -196,7 +196,7 @@ workshops run by Dr. Krishnamurthy.</p>
 <span class="r-in"><span>    gamma <span class="op">=</span> <span class="fl">0.0009</span>,</span></span>
 <span class="r-in"><span>    sigma <span class="op">=</span> <span class="fl">0.000001</span>,</span></span>
 <span class="r-in"><span>    delta <span class="op">=</span> <span class="fl">0.01</span>,</span></span>
-<span class="r-in"><span>    outputRows <span class="op">=</span> <span class="fl">230</span><span class="op">)</span></span></span>
+<span class="r-in"><span>    timesteps <span class="op">=</span> <span class="fl">230</span><span class="op">)</span></span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>     time        N            S         E         I            R        D</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 1      1 500.0000 4.890000e+02  10.00000  1.000000 0.000000e+00 29.00000</span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> 2      2 499.9900 4.865614e+02  12.42847  1.000094 9.998648e-07 29.01000</span>
