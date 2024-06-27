@@ -16,7 +16,7 @@ determine compartments used in the model that is run."><meta property="og:image"
     
     <a class="navbar-brand me-2" href="../index.html">ehpi</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.7.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.8.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -69,8 +69,8 @@ determine compartments used in the model that is run.</p>
 <span>  sigma <span class="op">=</span> <span class="fl">0</span>,</span>
 <span>  delta <span class="op">=</span> <span class="fl">0</span>,</span>
 <span>  xi <span class="op">=</span> <span class="fl">0</span>,</span>
-<span>  muB <span class="op">=</span> <span class="fl">0</span>,</span>
-<span>  muD <span class="op">=</span> <span class="fl">0</span>,</span>
+<span>  muBirth <span class="op">=</span> <span class="fl">0</span>,</span>
+<span>  muDeath <span class="op">=</span> <span class="fl">0</span>,</span>
 <span>  vitalDynamics <span class="op">=</span> <span class="cn">FALSE</span>,</span>
 <span>  trueMassAction <span class="op">=</span> <span class="cn">FALSE</span>,</span>
 <span>  timesteps <span class="op">=</span> <span class="fl">25</span>,</span>
@@ -82,7 +82,7 @@ determine compartments used in the model that is run.</p>
     <h2 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h2>
     <dl><dt>population</dt>
 <dd><p>The initial number of persons in the simulation; if
-<code>vitalDynamics = TRUE</code> and <code>muB</code> and <code>muD</code> are equal, then it is constant.</p></dd>
+<code>vitalDynamics = TRUE</code> and <code>muBirth</code> and <code>muDeath</code> are equal, then it is constant.</p></dd>
 
 
 <dt>susceptible</dt>
@@ -130,17 +130,17 @@ the rate of susceptible people being exposed to the infectious.</p></dd>
 <dd><p>The rate of loss of learned immunity.</p></dd>
 
 
-<dt>muB</dt>
+<dt>muBirth</dt>
 <dd><p>The rate of birth.</p></dd>
 
 
-<dt>muD</dt>
+<dt>muDeath</dt>
 <dd><p>The rate of death not due to the disease under consideration.</p></dd>
 
 
 <dt>vitalDynamics</dt>
 <dd><p>Whether vital dynamics is enabled (if <code>FALSE</code>, the
-default, implies muB and muD of zero).</p></dd>
+default, implies muBirth and muDeath of zero).</p></dd>
 
 
 <dt>trueMassAction</dt>
