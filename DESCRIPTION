@@ -1,6 +1,6 @@
 Package: ehpi
 Title: A Basic Compartmental Epidemic Modelling API
-Version: 0.7.0
+Version: 0.8.0
 Language: en-CA
 Authors@R:
   c(person(given = "Bryce", family = "Carson",

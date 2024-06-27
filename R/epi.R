@@ -23,7 +23,7 @@
 #' workshops run by Dr. Krishnamurthy.
 #'
 #' @param population The initial number of persons in the simulation; if
-#'   `vitalDynamics = TRUE` and `muB` and `muD` are equal, then it is constant.
+#'   `vitalDynamics = TRUE` and `muBirth` and `muDeath` are equal, then it is constant.
 #' @param susceptible The initial number of people who are susceptible to the
 #'   disease (they have no natural immunity to it).
 #' @param exposed The initial number of people who have been exposed to the
@@ -41,11 +41,11 @@
 #' @param sigma The rate of becoming recovered (no longer infectious).
 #' @param delta The rate of fatality.
 #' @param xi The rate of loss of learned immunity.
-#' @param muB The rate of birth.
-#' @param muD The rate of death not due to the disease under consideration.
+#' @param muBirth The rate of birth.
+#' @param muDeath The rate of death not due to the disease under consideration.
 #'
 #' @param vitalDynamics Whether vital dynamics is enabled (if `FALSE`, the
-#'   default, implies muB and muD of zero).
+#'   default, implies muBirth and muDeath of zero).
 #' @param trueMassAction Whether the force of infection is scaled by the
 #'   population or not.
 #'
@@ -78,7 +78,7 @@ epi <-
            population, susceptible, exposed = 0, infected, recovered, dead = 0,
 
            ## Parameters (not alphabetically sorted)
-           beta, gamma, sigma = 0, delta = 0, xi = 0, muB = 0, muD = 0,
+           beta, gamma, sigma = 0, delta = 0, xi = 0, muBirth = 0, muDeath = 0,
 
            ## Simulation options
            vitalDynamics = FALSE,
@@ -91,9 +91,9 @@ epi <-
   variables <- c(population, susceptible, exposed, infected, recovered, dead)
   names(variables) <- c("N", "S", "E", "I", "R", "D")
   parameters <- c(beta, gamma, sigma, delta, xi,
-                  muB * vitalDynamics,
-                  muD * vitalDynamics)
-  names(parameters) <- c("beta", "gamma", "sigma", "delta", "xi", "muB", "muD")
+                  muBirth * vitalDynamics,
+                  muDeath * vitalDynamics)
+  names(parameters) <- c("beta", "gamma", "sigma", "delta", "xi", "muBirth", "muDeath")
 
   ## Prevent lsoda from being called with conflicting argument values.
   if(delta == 0) stopifnot(dead == 0)
@@ -121,21 +121,21 @@ epi <-
 
         ## Regardless of exposure
         betaSIN <- beta * ((S * I) / N^trueMassAction)
-        dS <- c(muB * N, -betaSIN, -muD * S)
+        dS <- c(muBirth * N, -betaSIN, -muDeath * S)
         dD <- delta * I # Always zero if delta == 0.
 
         ## Define the IR compartments with respect to the E compartment.
         if(sigma == 0) {
           ## Without exposure, there is no E compartment. γ has its meaning as
           ## in an SI-type model.
-          compartments <- list(dI = c((betaSIN), -(gamma * I), -(muD * I)),
-                               dR = c((gamma * I), -(muD * R)))
+          compartments <- list(dI = c((betaSIN), -(gamma * I), -(muDeath * I)),
+                               dR = c((gamma * I), -(muDeath * R)))
         } else {
           ## With exposure, there is is an E compartment. γ has its meaning as
           ## in an SEI-type model.
-          compartments <- list(dE = c((betaSIN), -(gamma * E), -(muD * E)),
-                               dI = c((gamma * E), -(sigma * I), -(muD * I)),
-                               dR = c((sigma * I), -(muD * R)))
+          compartments <- list(dE = c((betaSIN), -(gamma * E), -(muDeath * E)),
+                               dI = c((gamma * E), -(sigma * I), -(muDeath * I)),
+                               dR = c((sigma * I), -(muDeath * R)))
         }
 
         ## Enable loss of immunity if xi is non-zero.
@@ -149,7 +149,7 @@ epi <-
         if (delta != 0) compartments$dI <- c(compartments$dI, -dD)
 
         ## NOTE: dD is already equal to its sum, and is not part of the
-        ## calculation of dN. dN is non-zero if muB != muD. Name dS again; it is
+        ## calculation of dN. dN is non-zero if muBirth != muD. Name dS again; it is
         ## helpful while debugging and printing the compartmentSums.
         compartmentSums <- lapply(append(list(dS = dS), compartments), sum)
         dN <- Reduce(`+`, compartmentSums)

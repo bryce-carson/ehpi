@@ -16,8 +16,8 @@ epi(
   sigma = 0,
   delta = 0,
   xi = 0,
-  muB = 0,
-  muD = 0,
+  muBirth = 0,
+  muDeath = 0,
   vitalDynamics = FALSE,
   trueMassAction = FALSE,
   timesteps = 25,
@@ -26,7 +26,7 @@ epi(
 }
 \arguments{
 \item{population}{The initial number of persons in the simulation; if
-\code{vitalDynamics = TRUE} and \code{muB} and \code{muD} are equal, then it is constant.}
+\code{vitalDynamics = TRUE} and \code{muBirth} and \code{muDeath} are equal, then it is constant.}
 
 \item{susceptible}{The initial number of people who are susceptible to the
 disease (they have no natural immunity to it).}
@@ -53,12 +53,12 @@ the rate of susceptible people being exposed to the infectious.}
 
 \item{xi}{The rate of loss of learned immunity.}
 
-\item{muB}{The rate of birth.}
+\item{muBirth}{The rate of birth.}
 
-\item{muD}{The rate of death not due to the disease under consideration.}
+\item{muDeath}{The rate of death not due to the disease under consideration.}
 
 \item{vitalDynamics}{Whether vital dynamics is enabled (if \code{FALSE}, the
-default, implies muB and muD of zero).}
+default, implies muBirth and muDeath of zero).}
 
 \item{trueMassAction}{Whether the force of infection is scaled by the
 population or not.}
