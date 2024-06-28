@@ -75,8 +75,8 @@ differential equations for each point in time of the model (per function
 arguments).
 }
 \description{
-\code{\link[=epi]{epi()}} is an application programming interface (for the
-Shiny application that motivated its creation) or a convenient function for
+ehpi is an application programming interface (for the Shiny application that
+motivated its creation) or a convenient function \code{\link[=epi]{epi()}} for
 interactive use in epidemic modelling. The arguments provided to the function
 determine compartments used in the model that is run.
 }
